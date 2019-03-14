@@ -18,15 +18,20 @@ ngx-graph gives you complete control over the look and behavior of your graph. Y
       target: 'c1',
       label: 'custom label'
     }, {
-      id: 'c',
-      source: 'first',
-      target: 'c1',
-      label: 'custom label'
-    }, {
       id: 'd',
       source: 'first',
       target: 'c2',
       label: 'custom label'
+    }, {
+      id: 'e',
+      source: 'c1',
+      target: 'd',
+      label: 'first link'
+    }, {
+      id: 'f',
+      source: 'c1',
+      target: 'd',
+      label: 'second link'
     }
   ]"
   [nodes]="[
@@ -42,6 +47,9 @@ ngx-graph gives you complete control over the look and behavior of your graph. Y
     }, {
       id: 'c2',
       label: 'C2'
+    }, {
+      id: 'd',
+      label: 'D'
     }
   ]"
   [clusters]="[
@@ -130,7 +138,7 @@ To define a custom template for the edges, define a `#linkTemplate` element as a
 
 ## Cluster Template
 
-To define a custom template for the cluster nodes, define a `#clusterTemplate` element as a content child of the `ngx-graph` component. Each cluster object is passed to the template via the `cluster` template context, so you can style each link based on its properties.
+To define a custom template for the cluster nodes, define a `#clusterTemplate` element as a content child of the `ngx-graph` component. Each cluster object is passed to the template via the `cluster` template context, so you can style each cluster based on its properties.
 
 ```
 <ng-template #clusterTemplate let-cluster>
